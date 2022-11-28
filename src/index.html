@@ -7,7 +7,11 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app">Test</div>
+    <% if (isDev) { %>
+      <span>Index page - dev</span>
+    <% } else { %>
+      <span>Index page - prod</span>
+    <% } %>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
