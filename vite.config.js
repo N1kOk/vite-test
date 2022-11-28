@@ -4,26 +4,22 @@ import { defineConfig } from 'vite';
 import MultiInput from 'rollup-plugin-multi-input';
 
 export default defineConfig({
-  root: resolve(__dirname, 'src/'),
+  root: resolve(__dirname, 'src'),
+  publicDir: './assets',
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
     rollupOptions: {
-      input: [
-        resolve(__dirname, 'src/**/*.html'),
-        /* resolve(__dirname, 'src/pages/test.html'), */
-      ],
-      plugins: [
-        MultiInput.default()
-      ]
+      input: [resolve(__dirname, 'src/**/*.html')],
+      plugins: [MultiInput.default()],
     },
   },
   plugins: [
     ViteEjsPlugin(
-      { title: 'My vue project!' },
+      { title: 'My Vite project!' },
       {
         ejs: {
-          
+          rmWhitespace: true,
         },
       }
     ),
